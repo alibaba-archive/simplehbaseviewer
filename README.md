@@ -1,0 +1,4 @@
+simplehbaseviewer
+=================
+
+hbase web viewer
