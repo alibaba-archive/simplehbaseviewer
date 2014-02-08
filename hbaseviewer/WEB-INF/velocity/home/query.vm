@@ -1,0 +1,53 @@
+<h1>command</h1>
+<form action="query.htm" method="post">
+	
+	<br/>	
+	<textarea name="command" rows="10" cols="100">$!command</textarea>		
+	<br/>	
+	<input type="submit" value="Submit" />	
+</form>
+
+
+<br/>	
+<br/>	
+
+<h1>info</h1>
+
+
+#if($!allFamilyAndQualifierName)
+<table border="1">
+  <tr>    
+    <th>rowKey</th>
+    <th>timestamp</th>
+    #foreach($c in $!allFamilyAndQualifierName)
+    <th>$c</th>
+    #end    
+  </tr>
+  
+  #foreach($wcell in $!resultList)
+    <tr>    
+    <th>$wcell.rowkey</th>
+    <th>$wcell.ts</th>
+    #foreach($c in $!allFamilyAndQualifierName)   
+	<th>
+	#if($wcell.findValue($c))
+		$wcell.findValue($c)
+	#end</th>
+    #end 
+    </tr>
+  #end
+</table>  
+#end
+
+
+
+
+<br/>	
+<br/>	
+
+<h1>log</h1>
+#if($!status=="ok")
+	ok!
+#else
+	$!exception
+#end

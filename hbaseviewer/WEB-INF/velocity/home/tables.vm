@@ -1,0 +1,24 @@
+#foreach($item in $!tables)
+<a href="tables.htm?tableName=$item">$item</a>
+#end
+
+<br/>
+<br/>
+<br/>
+
+<table border="1">
+  <tr>
+    <th>family</th>
+    <th>qualifier</th>
+    <th>typeName</th>
+    <th>typeHandlerName</th>
+  </tr>
+#foreach($column in $!columns)
+ <tr>
+	<td>$column.family</td>
+	<td>$column.qualifier</td>
+	<td>$column.typeName</td>
+	<td>$column.typeHandlerName</td>
+ </tr>
+#end
+</table>

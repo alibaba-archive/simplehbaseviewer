@@ -33,11 +33,7 @@
 	
 	<!-- import other spring xml -->
 	<import resource="velocityconfig.xml" />
-	<!--
-	<import resource="book.xml" />
-    <import resource="javaeye.xml" />
-    <import resource="film.xml" />
-    
-    -->
+	<import resource="simplehbase.xml" />
+	
 
 </beans>

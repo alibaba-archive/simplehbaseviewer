@@ -1,26 +1,16 @@
 package com.alipay.hbaseviewer.home;
 
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alipay.hbaseviewer.helper.ViewHelper;
 
-/**
- * HomeController.
- * */
 @Controller
-public class HomeController {
+public class ExampleController {
 
-    @RequestMapping(value = "/")
-    public String home() {
-        return getHandle();
-    }
-
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    @RequestMapping(value = "/example", method = RequestMethod.GET)
     public String getHandle() {
-        return ViewHelper.getHomeView("index");
+        return ViewHelper.getHomeView("example");
     }
-
 }

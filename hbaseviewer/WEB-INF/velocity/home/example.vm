@@ -1,0 +1,25 @@
+<h1>INSERT</h1>
+<ul>
+   <li>
+   insert into MyRecordV04 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")
+   </li>
+   <li>
+   insert into MyRecordV04 ( fatname,age ) values ( "allenfat", "30" ) rowkey is intkey ("0") 
+   </li>
+   <li>
+   insert into MyRecordV04 ( name ) values ( null ) rowkey is intkey ("0")
+   </li>
+</ul>
+ 
+
+<br/>
+<br/>
+
+
+<h1>SELECT</h1>
+
+<ul>
+   <li>
+   select * from MyRecordV04 rowkey range ( intkey ("0") , intkey ("100") )
+   </li>
+</ul>
