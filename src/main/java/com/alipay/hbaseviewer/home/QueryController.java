@@ -17,6 +17,7 @@ import com.alipay.simplehbase.client.SimpleHbaseCellResult;
 import com.alipay.simplehbase.client.SimpleHbaseClient;
 
 import com.alipay.simplehbase.core.RawHQLType;
+import com.alipay.simplehbase.util.ExceptionUtil;
 
 /**
  * HomeController.
@@ -36,8 +37,8 @@ public class QueryController {
     public String postHandle(CommandForm commandForm, ModelMap model) {
 
         String command = commandForm.getCommand();
-        model.addAttribute("command", command);
-
+        model.addAttribute("commandForm", commandForm);
+        System.out.println("isColumnMode" + commandForm.isColumnMode());
         try {
             ProgContext progContext = TreeUtil.parseProgContext(command);
             String tableName = TreeUtil.parseTableName(progContext);
@@ -58,15 +59,18 @@ public class QueryController {
                             allFamilyAndQualifierName);
                     model.addAttribute("resultList", convert(cellListList));
                     break;
+                case DELETE:
+                    simpleHbaseClient.delete(command);
+                    break;
                 default:
                     break;
             }
 
             model.addAttribute("status", "ok");
         } catch (Exception e) {
-            model.addAttribute("status", "error");
 
-            model.addAttribute("exception", e);
+            model.addAttribute("status", "error");
+            model.addAttribute("exception", ExceptionUtil.getExceptionMsg(e));
         }
         return ViewHelper.getHomeView("query");
 

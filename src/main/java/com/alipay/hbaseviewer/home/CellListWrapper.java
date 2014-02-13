@@ -74,7 +74,7 @@ public class CellListWrapper {
                 }
             }
         }
-        return null;
+        return "";
     }
 
     public Date getTs() {

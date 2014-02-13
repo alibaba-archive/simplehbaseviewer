@@ -2,52 +2,82 @@
 <form action="query.htm" method="post">
 	
 	<br/>	
-	<textarea name="command" rows="10" cols="100">$!command</textarea>		
+	<textarea name="command" rows="5" cols="100">$!commandForm.command</textarea>		
 	<br/>	
+	columnMode <input type="checkbox" name="columnMode" #if($!commandForm.columnMode=='true')checked #end value="true" />
+	<br/>
 	<input type="submit" value="Submit" />	
 </form>
-
-
+<h1>log</h1>
+#if($!status=="ok")
+    ok!
+#else
+<pre>
+	$!exception
+</pre>	
+#end
 <br/>	
 <br/>	
 
 <h1>info</h1>
-
-
 #if($!allFamilyAndQualifierName)
-<table border="1">
-  <tr>    
-    <th>rowKey</th>
-    <th>timestamp</th>
-    #foreach($c in $!allFamilyAndQualifierName)
-    <th>$c</th>
-    #end    
-  </tr>
+
+    #set($list_size= $!resultList.size() - 1) 
+    
+    #if($!commandForm.columnMode=='true')
+        <table border="1">
+        <tr>
+            <th align="left">rowKey</th>
+            #foreach( $i in [ 0 .. $list_size] )        
+                <th align="left">$!resultList.get($i).rowkey</th>
+            #end
+        </tr>  
+        
+        <tr>
+            <th align="left">timestamp</th>
+            #foreach( $i in [ 0 .. $list_size] )        
+                <th align="left">$!resultList.get($i).ts </th>
+            #end            
+        </tr>
+        
+        #foreach($c in $!allFamilyAndQualifierName)     
+            <tr>        
+            <th align="left">$c</th>
+            #foreach( $i in [ 0 .. $list_size] )        
+                <th align="left">$!resultList.get($i).findValue($c) </th>
+            #end            
+            </tr>
+        #end
+        
+        </table>    
+    #else
+    
+        <table border="1">
+        <tr>    
+        <th align="left">rowKey</th>
+        <th align="left">timestamp</th>
+        #foreach($c in $!allFamilyAndQualifierName)
+            <th align="left">$c</th>
+        #end    
+        </tr>
   
-  #foreach($wcell in $!resultList)
-    <tr>    
-    <th>$wcell.rowkey</th>
-    <th>$wcell.ts</th>
-    #foreach($c in $!allFamilyAndQualifierName)   
-	<th>
-	#if($wcell.findValue($c))
-		$wcell.findValue($c)
-	#end</th>
-    #end 
-    </tr>
-  #end
-</table>  
+        #foreach($wcell in $!resultList)
+            <tr>    
+            <th align="left">$wcell.rowkey</th>
+            <th align="left">$wcell.ts</th>
+            #foreach($c in $!allFamilyAndQualifierName)   
+                <th align="left">$wcell.findValue($c)</th>
+            #end 
+            </tr>
+        #end
+        </table>      
+
+    #end
 #end
 
 
 
 
-<br/>	
-<br/>	
 
-<h1>log</h1>
-#if($!status=="ok")
-	ok!
-#else
-	$!exception
-#end
+
+
