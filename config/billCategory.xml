@@ -1,25 +1,37 @@
 <SimpleHbase>
 
-	<HBaseTableSchema tableName="billCategory" defaultFamily="cf" >	
+	<HBaseTableSchema tableName="billCategory" defaultFamily="cf" rowKeyHandlerName="com.alipay.hbaseviewer.ext.billCategory.BillCategoryRowKeyHandler" >	
 	
 		<HBaseColumnSchema qualifier="userId" typeName="string" />
 		<HBaseColumnSchema qualifier="billCycle" typeName="string" />
 		
-		<HBaseColumnSchema qualifier="fatherFundpayIncome" typeName="string" />
-		<HBaseColumnSchema qualifier="subFundpayIncome" typeName="string" />
-		<HBaseColumnSchema qualifier="topFundpayIncome" typeName="string" />
-		<HBaseColumnSchema qualifier="amountFundpayIncome" typeName="string" />
-		<HBaseColumnSchema qualifier="countFundpayIncome" typeName="string" />		
+		<HBaseColumnSchema qualifier="fundpayIncomeFather" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayIncomeSub" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayIncomeTop" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayIncomeAmount" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayIncomeCount" typeName="string" />		
 		
 	
+	    <HBaseColumnSchema qualifier="fundpayTurnInFather" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnInSub" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnInTop" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnInAmount" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnInCount" typeName="string" />
+		
+		<HBaseColumnSchema qualifier="fundpayTurnOutFather" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnOutSub" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnOutTop" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnOutAmount" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayTurnOutCount" typeName="string" />
+		
+		<HBaseColumnSchema qualifier="fundpayConsumeFather" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayConsumeSub" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayConsumeTop" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayConsumeAmount" typeName="string" />
+		<HBaseColumnSchema qualifier="fundpayConsumeCount" typeName="string" />    
+    
 		
 	</HBaseTableSchema>
-
-	<configMap>
-		<config key="SCAN_CACHING" value="20" />
-		<config key="DELETE_BATCH" value="20" />
-	</configMap>
-
 </SimpleHbase>   
 
 

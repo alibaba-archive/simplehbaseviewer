@@ -1,19 +1,18 @@
 <h1>INSERT</h1>
-<ul>
-   <li>
+<pre>
+   
    INSERT INTO tablename cidList VALUES constant2List ROWKEY IS rowkeyexp ( TS IS tsexp ) ? 
-   </li>
-   <br/>
-   <li>
+   
+   
+   insert into billCategory  ( userId ) values ( "2088123456781234" ) rowkey is billCategoryRowKey ("2088123456781234_20140401") 
+   
    insert into MyRecordV04 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")   
-   </li>
-   <li>
+   
    insert into MyRecordV04 ( fatname,age ) values ( "allenfat", "30" ) rowkey is intkey ("0") 
-   </li>
-   <li>
+   
    insert into MyRecordV04 ( name ) values ( null ) rowkey is intkey ("0")
-   </li>
-</ul>
+   
+</pre>
  
 
 <br/>
@@ -22,21 +21,18 @@
 
 <h1>SELECT</h1>
 
-<ul>
-   <li>
+<pre>
    SELECT selectCidList FROM tablename ( wherec ) ? rowkeyrange ( maxversionexp) ?  (tsrange) ? (limitexp) ?
-   </li>
-   <br/>
-   <li>
+   
+   select * from  billCategory   startkey is billCategoryRowKey ("2088123456781234_20140401") 
+   
    select * from MyRecordV04 startkey is intkey ("0") , endkey is intkey ("100") maxversion 10 startTS is "2014-01-01" , endTS is "2100-01-01" limit 10 , 20
-   </li>
-   <li>
+   
    select * from MyRecordV04 startkey is intkey ("0")  startTS is "2014-01-01" limit 10 , 20
-   </li>
-   <li>
+   
    select * from MyRecordV04 startkey is intkey ("0")  
-   </li>
-</ul>
+</pre>   
+
 
 <h1>DELETE</h1>
 
