@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.alipay.hbaseviewer.helper.ViewHelper;
 import com.alipay.simplehbase.client.SimpleHbaseClient;
+import com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting;
 
 @Controller
 public class TableController {
@@ -27,6 +28,13 @@ public class TableController {
             model.addAttribute("columns", simpleHbaseClient
                     .getHbaseTableConfig().getHbaseTableSchema()
                     .findAllColumnSchemas());
+
+            SimpleHbaseRuntimeSetting runtimeSetting = simpleHbaseClient
+                    .getSimpleHbaseRuntimeSetting();
+            model.addAttribute("rowKeyTextFuncs",
+                    runtimeSetting.findAllRowKeyTextFunc());
+            model.addAttribute("literalInterpreters",
+                    runtimeSetting.findAllLiteralInterpreter());
         }
 
         return ViewHelper.getHomeView("tables");

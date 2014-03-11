@@ -23,3 +23,44 @@
  </tr>
 #end
 </table>
+
+<br/>
+<br/>
+<br/>
+
+
+func list
+<table border="1">
+  <tr>
+    <th>name</th>
+    <th>des</th>
+    <th>class</th>    
+  </tr>
+#foreach($item in $!rowKeyTextFuncs)
+ <tr>
+	<td>$item.funcName()</td>
+	<td>$item.desc()</td>
+	<td>$item.getClass()</td>	
+ </tr>
+#end
+</table>
+
+<br/>
+<br/>
+<br/>
+
+
+literal Interpreters list
+<table border="1">
+  <tr>
+    <th>class to handle</th>    
+    <th>class</th>    
+  </tr>
+#foreach($item in $!literalInterpreters)
+ <tr>
+	<td>$item.getTypeCanInterpret()</td>
+	<td>$item.getClass()</td>	
+ </tr>
+#end
+</table>
+
