@@ -20,7 +20,7 @@
 <br/>	
 
 <h1>info</h1>
-#if($!allFamilyAndQualifierName)
+#if($!allFamilyAndQualifierName && $!allFamilyAndQualifierName.size()>0)
 
     #set($list_size= $!resultList.size() - 1) 
     

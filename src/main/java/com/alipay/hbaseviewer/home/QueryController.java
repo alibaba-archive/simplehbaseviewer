@@ -37,8 +37,7 @@ public class QueryController {
     public String postHandle(CommandForm commandForm, ModelMap model) {
 
         String command = commandForm.getCommand();
-        model.addAttribute("commandForm", commandForm);
-        System.out.println("isColumnMode" + commandForm.isColumnMode());
+        model.addAttribute("commandForm", commandForm);        
         try {
             ProgContext progContext = TreeUtil.parseProgContext(command);
             String tableName = TreeUtil.parseTableName(progContext);

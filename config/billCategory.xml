@@ -1,0 +1,27 @@
+<SimpleHbase>
+
+	<HBaseTableSchema tableName="billCategory" defaultFamily="cf" >	
+	
+		<HBaseColumnSchema qualifier="userId" typeName="string" />
+		<HBaseColumnSchema qualifier="billCycle" typeName="string" />
+		
+		<HBaseColumnSchema qualifier="fatherFundpayIncome" typeName="string" />
+		<HBaseColumnSchema qualifier="subFundpayIncome" typeName="string" />
+		<HBaseColumnSchema qualifier="topFundpayIncome" typeName="string" />
+		<HBaseColumnSchema qualifier="amountFundpayIncome" typeName="string" />
+		<HBaseColumnSchema qualifier="countFundpayIncome" typeName="string" />		
+		
+	
+		
+	</HBaseTableSchema>
+
+	<configMap>
+		<config key="SCAN_CACHING" value="20" />
+		<config key="DELETE_BATCH" value="20" />
+	</configMap>
+
+</SimpleHbase>   
+
+
+
+

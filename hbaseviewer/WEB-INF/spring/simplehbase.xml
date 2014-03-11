@@ -28,13 +28,34 @@
 	</bean>
 
 
+	<bean id="consumerecord_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig" init-method="init">
+		<property name="configFilePath" value="config\consumerecord.xml">
+		</property>
+	</bean>
+	
+	<bean id="consumerecord_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
+		<property name="hbaseTableConfig" ref="consumerecord_hbaseTableConfig" />
+		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+	</bean>
+	
+	<bean id="billCategory_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig" init-method="init">
+		<property name="configFilePath" value="config\billCategory.xml">
+		</property>
+	</bean>
+	
+	<bean id="billCategory_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
+		<property name="hbaseTableConfig" ref="billCategory_hbaseTableConfig" />
+		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+	</bean>
+
 	<bean id="hbaseClientManager" class="com.alipay.hbaseviewer.home.HbaseClientManager">
 		<property name="list">
 			<list>
 				<ref bean="test_simpleHbaseClient" />
+				<ref bean="consumerecord_simpleHbaseClient" />	
+				<ref bean="billCategory_simpleHbaseClient" />			
 			</list>
 		</property>
 	</bean>
-
 
 </beans>

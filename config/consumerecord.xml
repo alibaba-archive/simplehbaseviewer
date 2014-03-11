@@ -1,0 +1,76 @@
+<SimpleHbase>
+
+	<HBaseTableSchema tableName="T_CONSUME_RECORD" defaultFamily="CONSUME" rowKeyHandlerName="com.alipay.hbaseviewer.ext.ConsumeRecordRowKeyHandler" >	
+	
+		<HBaseColumnSchema qualifier="OWNER_CARD_NO" typeName="string" />
+		<HBaseColumnSchema qualifier="OWNER_CUSTOMER_ID" typeName="string" />
+		<HBaseColumnSchema qualifier="OPPOSITE_CARD_NO" typeName="string" />
+		<HBaseColumnSchema qualifier="OPPOSITE_NAME" typeName="string" />
+		<HBaseColumnSchema qualifier="OPPOSITE_NICK_NAME" typeName="string" />
+		<HBaseColumnSchema qualifier="CONSUME_TYPE" typeName="string" />
+		<HBaseColumnSchema qualifier="CONSUME_TITLE" typeName="string" />		
+		<HBaseColumnSchema qualifier="CONSUME_FEE" typeName="string" />
+		<HBaseColumnSchema qualifier="CONSUME_REFUND_FEE" typeName="string" />		
+		<HBaseColumnSchema qualifier="CONSUME_SITE" typeName="string" />		
+		<HBaseColumnSchema qualifier="CONSUME_STATUS" typeName="string" />	
+		
+	    <HBaseColumnSchema qualifier="CONSUME_REFUND_STATUS" typeName="string" />
+	    <HBaseColumnSchema qualifier="IN_OUT" typeName="string" />
+	    <HBaseColumnSchema qualifier="SERVICE_FEE" typeName="string" />
+	    <HBaseColumnSchema qualifier="CURRENCY" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_TYPE" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_SUB_TYPE" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_ORIG" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_IN_NO" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_OUT_NO" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_EXTRA_NO" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_STATE" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_PROPS" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_MEMO" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_ACTIONS" typeName="string" />
+	    <HBaseColumnSchema qualifier="MESSAGE_BORN" typeName="string" />
+	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="string" />
+	    
+	    <HBaseColumnSchema qualifier="GMT_BIZ_MODIFIED" typeName="string" />
+	    <HBaseColumnSchema qualifier="GMT_MODIFIED" typeName="string" />
+	    <HBaseColumnSchema qualifier="GMT_CREATE" typeName="string" />
+	    <HBaseColumnSchema qualifier="OWNER_LOGIN_ID" typeName="string" />
+	    <HBaseColumnSchema qualifier="OPPOSITE_LOGIN_ID" typeName="string" />
+	    <HBaseColumnSchema qualifier="PARTNER_ID" typeName="string" />
+	    
+	    <HBaseColumnSchema qualifier="PRODUCT" typeName="string" />
+	    <HBaseColumnSchema qualifier="PAY_CHANNEL" typeName="string" />
+	    <HBaseColumnSchema qualifier="ACCESS_CHANNEL" typeName="string" />
+	    <HBaseColumnSchema qualifier="FLAG_LOCKED" typeName="string" />
+	    <HBaseColumnSchema qualifier="FLAG_REFUND" typeName="string" />
+	    <HBaseColumnSchema qualifier="ADDITIONAL_STATUS" typeName="string" />
+	    
+	    <HBaseColumnSchema qualifier="GMT_RECEIVE_PAY" typeName="string" />
+	    
+	    <HBaseColumnSchema qualifier="TRADE_FROM" typeName="string" />
+	    <HBaseColumnSchema qualifier="OWNER_NAME" typeName="string" />
+	    <HBaseColumnSchema qualifier="OWNER_NICK" typeName="string" />
+	    <HBaseColumnSchema qualifier="VAR1" typeName="string" />
+	    
+	    <HBaseColumnSchema qualifier="VAR2" typeName="string" />
+	    <HBaseColumnSchema qualifier="VAR4" typeName="string" />
+	    <HBaseColumnSchema qualifier="VAR5" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIG1" typeName="string" />
+	    <HBaseColumnSchema qualifier="DATE1" typeName="string" />
+	    <HBaseColumnSchema qualifier="VERSION" typeName="string" />
+		
+		
+	
+		
+	</HBaseTableSchema>
+
+	<configMap>
+		<config key="SCAN_CACHING" value="20" />
+		<config key="DELETE_BATCH" value="20" />
+	</configMap>
+
+</SimpleHbase>   
+
+
+
+

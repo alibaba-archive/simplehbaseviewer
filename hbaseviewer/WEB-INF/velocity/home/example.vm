@@ -1,7 +1,11 @@
 <h1>INSERT</h1>
 <ul>
    <li>
-   insert into MyRecordV04 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")
+   INSERT INTO tablename cidList VALUES constant2List ROWKEY IS rowkeyexp ( TS IS tsexp ) ? 
+   </li>
+   <br/>
+   <li>
+   insert into MyRecordV04 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")   
    </li>
    <li>
    insert into MyRecordV04 ( fatname,age ) values ( "allenfat", "30" ) rowkey is intkey ("0") 
@@ -20,6 +24,29 @@
 
 <ul>
    <li>
-   select * from MyRecordV04 rowkey range ( intkey ("0") , intkey ("100") )
+   SELECT selectCidList FROM tablename ( wherec ) ? rowkeyrange ( maxversionexp) ?  (tsrange) ? (limitexp) ?
    </li>
+   <br/>
+   <li>
+   select * from MyRecordV04 startkey is intkey ("0") , endkey is intkey ("100") maxversion 10 startTS is "2014-01-01" , endTS is "2100-01-01" limit 10 , 20
+   </li>
+   <li>
+   select * from MyRecordV04 startkey is intkey ("0")  startTS is "2014-01-01" limit 10 , 20
+   </li>
+   <li>
+   select * from MyRecordV04 startkey is intkey ("0")  
+   </li>
+</ul>
+
+<h1>DELETE</h1>
+
+<ul>
+   <li>
+   DELETE selectCidList FROM tablename ( wherec ) ? rowkeyrange ( TS IS tsexp ) ?
+   </li>
+      <br/>
+	  
+   <li>
+   delete * from MyRecordV04 startkey is intkey ("0")
+   </li>   
 </ul>
