@@ -36,7 +36,7 @@
         <tr>
             <th align="left">timestamp</th>
             #foreach( $i in [ 0 .. $list_size] )        
-                <th align="left">$!resultList.get($i).ts </th>
+                <th align="left">$!resultList.get($i).getTsString() </th>
             #end            
         </tr>
         
@@ -64,7 +64,7 @@
         #foreach($wcell in $!resultList)
             <tr>    
             <th align="left">$wcell.rowkey</th>
-            <th align="left">$wcell.ts</th>
+            <th align="left">$wcell.getTsString()</th>
             #foreach($c in $!allFamilyAndQualifierName)   
                 <th align="left">$wcell.findValue($c)</th>
             #end 
