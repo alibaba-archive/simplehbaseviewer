@@ -1,1 +1,21 @@
+<pre>
 Welcome.
+
+home:
+home page.
+
+tables:
+view all tables.
+view tables's column and mapping.
+view function list.
+view interpreter list.
+
+query:
+console to insert, select, delete on hbase.
+
+example:
+example Hbase query language.
+
+</pre>
+
+

@@ -9,6 +9,7 @@ import java.util.TreeSet;
 
 import com.alipay.simplehbase.client.SimpleHbaseCellResult;
 import com.alipay.simplehbase.config.SimpleHbaseConstants;
+import com.alipay.simplehbase.util.DateUtil;
 
 public class CellListWrapper {
 
@@ -79,6 +80,10 @@ public class CellListWrapper {
 
     public Date getTs() {
         return ts;
+    }
+
+    public String getTsString() {
+        return DateUtil.format(ts, DateUtil.MSFormat);
     }
 
     public void setTs(Date ts) {

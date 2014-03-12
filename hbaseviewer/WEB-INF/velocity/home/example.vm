@@ -1,55 +1,43 @@
 <h1>INSERT</h1>
-<pre>
-   
-   INSERT INTO tablename cidList VALUES constant2List ROWKEY IS rowkeyexp ( TS IS tsexp ) ? 
-   
+<pre>   
+   INSERT INTO tablename cidList VALUES constant2List ROWKEY IS rowkeyexp ( TS IS tsexp ) ?	
    
    insert into billCategory  ( userId ) values ( "2088123456781234" ) rowkey is billCategoryRowKey ("2088123456781234_20140401") 
    
-   insert into MyRecordV04 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")   
+   insert into MyRecordV05 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")   
    
-   insert into MyRecordV04 ( fatname,age ) values ( "allenfat", "30" ) rowkey is intkey ("0") 
+   insert into MyRecordV05 ( fatname,age ) values ( "allenfat", "30" ) rowkey is intkey ("0") 
    
-   insert into MyRecordV04 ( name ) values ( null ) rowkey is intkey ("0")
+   insert into MyRecordV05 ( name ) values ( null ) rowkey is intkey ("0")
    
 </pre>
- 
-
-<br/>
-<br/>
-
 
 <h1>SELECT</h1>
-
 <pre>
    SELECT selectCidList FROM tablename ( wherec ) ? rowkeyrange ( maxversionexp) ?  (tsrange) ? (limitexp) ?
    
    select * from  billCategory   startkey is billCategoryRowKey ("2088123456781234_20140401") 
    
-   select * from MyRecordV04 startkey is intkey ("0") , endkey is intkey ("100") maxversion 10 startTS is "2014-01-01" , endTS is "2100-01-01" limit 10 , 20
+   select * from MyRecordV05 startkey is intkey ("0") , endkey is intkey ("100") maxversion 10 startTS is "2014-01-01" , endTS is "2100-01-01" limit 10 , 20
    
-   select * from MyRecordV04 startkey is intkey ("0")  startTS is "2014-01-01" limit 10 , 20
+   select * from MyRecordV05 startkey is intkey ("0")  startTS is "2014-01-01" limit 10 , 20
    
-   select * from MyRecordV04 startkey is intkey ("0")  
-</pre>   
+   select * from MyRecordV05 startkey is intkey ("0")
+
+   select * from MyRecordV05 rowkey is intkey ("0")   
+</pre>  
 
 
 <h1>DELETE</h1>
-
-<ul>
-   <li>
+<pre>
    DELETE selectCidList FROM tablename ( wherec ) ? rowkeyrange ( TS IS tsexp ) ?
-   </li>
-      <br/>
-	  
-   <li>
-   delete * from MyRecordV04 startkey is intkey ("0")
-   </li>   
-</ul>
+
+   delete * from MyRecordV05 startkey is intkey ("0")  
+</pre> 
 
 
-
-<br/>
+<h1>EBILL</h1>
+<h2>insert data to billCategory</h2>
 <pre>
 insert into billCategory
 ( 
