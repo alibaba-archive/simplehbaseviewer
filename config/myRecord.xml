@@ -1,6 +1,6 @@
 <SimpleHbase>
 
-	<HBaseTableSchema tableName="MyRecordV04" defaultFamily="MyRecordFamily">
+	<HBaseTableSchema tableName="MyRecordV05" defaultFamily="MyRecordFamily">
 		<HBaseColumnSchema qualifier="id" typeName="int" />
 		<HBaseColumnSchema qualifier="name" typeName="string" />
 		<HBaseColumnSchema qualifier="age" typeName="long" />
@@ -18,11 +18,6 @@
 		<HBaseColumnSchema qualifier="fatversion" typeName="long" />
 		
 	</HBaseTableSchema>
-
-	<configMap>
-		<config key="SCAN_CACHING" value="20" />
-		<config key="DELETE_BATCH" value="20" />
-	</configMap>
 
 </SimpleHbase>   
 

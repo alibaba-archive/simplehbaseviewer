@@ -46,3 +46,44 @@
    delete * from MyRecordV04 startkey is intkey ("0")
    </li>   
 </ul>
+
+
+
+<br/>
+<pre>
+insert into billCategory
+( 
+userId,
+billCycle,
+fundpayIncomeFather,
+fundpayIncomeSub,
+fundpayIncomeTop,
+fundpayIncomeAmount,
+fundpayIncomeCount,
+fundpayTurnInFather,
+fundpayTurnInSub,
+fundpayTurnInTop,
+fundpayTurnInAmount,
+fundpayTurnInCount,
+fundpayTurnOutFather,
+fundpayTurnOutSub,
+fundpayTurnOutTop,
+fundpayTurnOutAmount,
+fundpayTurnOutCount,
+fundpayConsumeFather,
+fundpayConsumeSub,
+fundpayConsumeTop,
+fundpayConsumeAmount,
+fundpayConsumeCount 
+) 
+values ( 
+"2088123456781234",
+"20140401",
+"FUND_PAY","FUND_PAY_INCOME",null,"10000","1",
+"FUND_PAY","FUND_PAY_IN",null,"20000","1",
+"FUND_PAY","FUND_PAY_OUT",null,"30000","1",
+"FUND_PAY","FUND_PAY_CONSUME",null,"40000","1" ) 
+
+rowkey is billCategoryRowKey ( "2088123456781234_20140401" ) 
+
+</pre>
