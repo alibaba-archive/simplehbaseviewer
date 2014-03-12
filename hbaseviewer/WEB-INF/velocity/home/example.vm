@@ -10,6 +10,8 @@
    
    insert into MyRecordV05 ( name ) values ( null ) rowkey is intkey ("0")
    
+   insert into MyRecordV05 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0") ts is "2014-10-01"
+   
 </pre>
 
 <h1>SELECT</h1>
@@ -24,7 +26,11 @@
    
    select * from MyRecordV05 startkey is intkey ("0")
 
-   select * from MyRecordV05 rowkey is intkey ("0")   
+   select * from MyRecordV05 rowkey is intkey ("0") 
+   
+   select ( name ) from MyRecordV05 rowkey is intkey ("0")   
+   
+   select ( name ) from MyRecordV05 where name equal "allen" rowkey is intkey ("0") 
 </pre>  
 
 
