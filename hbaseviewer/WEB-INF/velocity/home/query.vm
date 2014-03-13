@@ -9,6 +9,9 @@
 	<input type="submit" value="Submit" />	
 </form>
 <h1>log</h1>
+<pre>
+last query at $!nowTime : result is
+</pre>
 #if($!status=="ok")
     ok!
 #else

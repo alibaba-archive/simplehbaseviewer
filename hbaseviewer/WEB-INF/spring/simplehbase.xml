@@ -10,17 +10,17 @@
 
 	<bean id="test_hbaseDataSource" class="com.alipay.simplehbase.config.HBaseDataSource"
 		init-method="init">
-		<property name="hbaseConfigFilePaths">
+		<property name="hbaseConfigResources">
 			<list>
-				<value>config\hbase_site</value>
-				<value>config\zk_conf</value>
+				<value>file:config\hbase_site</value>
+				<value>file:config\zk_conf</value>
 			</list>
 		</property>
 	</bean>
 
 	<bean id="test_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig"
 		init-method="init">
-		<property name="configFilePath" value="config\myRecord.xml">
+		<property name="configResource" value="file:config\myRecord.xml">
 		</property>
 	</bean>
 
@@ -32,7 +32,7 @@
 
 	<bean id="consumerecord_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig"
 		init-method="init">
-		<property name="configFilePath" value="config\consumerecord.xml">
+		<property name="configResource" value="file:config\consumerecord.xml">
 		</property>
 	</bean>
 
@@ -43,7 +43,7 @@
 
 	<bean id="billCategory_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig"
 		init-method="init">
-		<property name="configFilePath" value="config\billCategory.xml">
+		<property name="configResource" value="file:config\billCategory.xml">
 		</property>
 	</bean>
 

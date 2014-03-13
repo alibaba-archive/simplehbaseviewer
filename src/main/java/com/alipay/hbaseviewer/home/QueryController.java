@@ -1,6 +1,7 @@
 package com.alipay.hbaseviewer.home;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ import com.alipay.simplehbase.client.SimpleHbaseCellResult;
 import com.alipay.simplehbase.client.SimpleHbaseClient;
 
 import com.alipay.simplehbase.core.RawHQLType;
+import com.alipay.simplehbase.util.DateUtil;
 import com.alipay.simplehbase.util.ExceptionUtil;
 
 /**
@@ -37,7 +39,7 @@ public class QueryController {
     public String postHandle(CommandForm commandForm, ModelMap model) {
 
         String command = commandForm.getCommand();
-        model.addAttribute("commandForm", commandForm);        
+        model.addAttribute("commandForm", commandForm);
         try {
             ProgContext progContext = TreeUtil.parseProgContext(command);
             String tableName = TreeUtil.parseTableName(progContext);
@@ -71,6 +73,9 @@ public class QueryController {
             model.addAttribute("status", "error");
             model.addAttribute("exception", ExceptionUtil.getExceptionMsg(e));
         }
+        model.addAttribute("nowTime",
+                DateUtil.format(new Date(), DateUtil.SecondFormat));
+
         return ViewHelper.getHomeView("query");
 
     }
