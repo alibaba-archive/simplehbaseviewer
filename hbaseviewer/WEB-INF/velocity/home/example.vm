@@ -10,7 +10,7 @@
    
    insert into MyRecordV05 ( name ) values ( null ) rowkey is intkey ("0")
    
-   insert into MyRecordV05 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0") ts is "2014-10-01"
+   insert into MyRecordV05 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0") ts is "2014-10-01_10:12:12:123"
    
 </pre>
 
@@ -18,7 +18,7 @@
 <pre>
    SELECT selectCidList FROM tablename ( wherec ) ? rowkeyrange ( maxversionexp) ?  (tsrange) ? (limitexp) ?
    
-   select * from  billCategory   startkey is billCategoryRowKey ("2088123456781234_20140401") 
+   select * from  billCategory   rowkey is billCategoryRowKey ("2088123456781234_20140401") 
    
    select * from MyRecordV05 startkey is intkey ("0") , endkey is intkey ("100") maxversion 10 startTS is "2014-01-01" , endTS is "2100-01-01" limit 10 , 20
    
