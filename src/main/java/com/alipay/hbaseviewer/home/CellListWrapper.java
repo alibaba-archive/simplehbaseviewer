@@ -7,11 +7,16 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
 import com.alipay.simplehbase.client.SimpleHbaseCellResult;
 import com.alipay.simplehbase.config.SimpleHbaseConstants;
 import com.alipay.simplehbase.util.DateUtil;
 
 public class CellListWrapper {
+
+    private static Log log = LogFactory.getLog(CellListWrapper.class);
 
     private static String familyAndQualifierName(SimpleHbaseCellResult cell) {
         return cell.getFamilyStr()
@@ -67,6 +72,9 @@ public class CellListWrapper {
     public Object findValue(String familyAndQualifierName) {
         for (SimpleHbaseCellResult cell : cellList) {
             if (familyAndQualifierName(cell).equals(familyAndQualifierName)) {
+
+                log.info(cell);
+
                 Object result = cell.getValueObject();
                 if (result == null) {
                     return "NULL";
