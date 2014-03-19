@@ -98,7 +98,7 @@
 		<dependency>
 			<groupId>allen</groupId>
 			<artifactId>simplehbase</artifactId>	
-			<version>0.5</version>
+			<version>0.5.1</version>
 		 </dependency>
 		 
 		 <dependency>
