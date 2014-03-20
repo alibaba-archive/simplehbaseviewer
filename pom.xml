@@ -5,7 +5,7 @@
 	<groupId>allen</groupId>
 	<artifactId>simplehbaseviewer</artifactId>
 	<packaging>jar</packaging>
-	<version>0.5</version>
+	<version>0.5.1</version>
 	<name>simplehbaseviewer</name>
 
 	<properties>
