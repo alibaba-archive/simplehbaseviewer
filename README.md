@@ -1,4 +1,4 @@
 simplehbaseviewer
 =================
 
-hbase web viewer
+hbase web console
