@@ -1,16 +1,25 @@
+<a href="exampletest.htm">run all hql to verify.</a>
+#if($!status=="ok")
+    <br/>
+    last test at $!nowTime. test ok!
+    <br/>
+#end
+ 
+#if($!status=="error")
+  <pre>
+	$!exception
+	
+  </pre>
+#end
+
 <h1>INSERT</h1>
 <pre>   
    INSERT INTO tablename cidList VALUES constant2List ROWKEY IS rowkeyexp ( TS IS tsexp ) ?	
    
-   insert into billCategory  ( userId ) values ( "2088123456781234" ) rowkey is billCategoryRowKey ("2088123456781234_20140401") 
+   #foreach( $hql in $!insertHqls )
+   $hql
    
-   insert into MyRecordV05 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0")   
-   
-   insert into MyRecordV05 ( fatname,age ) values ( "allenfat", "30" ) rowkey is intkey ("0") 
-   
-   insert into MyRecordV05 ( name ) values ( null ) rowkey is intkey ("0")
-   
-   insert into MyRecordV05 ( name,age ) values ( "allen", "30" ) rowkey is intkey ("0") ts is "2014-10-01_10:12:12:123"
+   #end
    
 </pre>
 
@@ -18,19 +27,10 @@
 <pre>
    SELECT selectCidList FROM tablename ( wherec ) ? rowkeyrange ( maxversionexp) ?  (tsrange) ? (limitexp) ?
    
-   select * from  billCategory   rowkey is billCategoryRowKey ("2088123456781234_20140401") 
+   #foreach( $hql in $!selectHqls )
+   $hql
    
-   select * from MyRecordV05 startkey is intkey ("0") , endkey is intkey ("100") maxversion 10 startTS is "2014-01-01" , endTS is "2100-01-01" limit 10 , 20
-   
-   select * from MyRecordV05 startkey is intkey ("0")  startTS is "2014-01-01" limit 10 , 20
-   
-   select * from MyRecordV05 startkey is intkey ("0")
-
-   select * from MyRecordV05 rowkey is intkey ("0") 
-   
-   select ( name ) from MyRecordV05 rowkey is intkey ("0")   
-   
-   select ( name ) from MyRecordV05 where name equal "allen" rowkey is intkey ("0") 
+   #end
 </pre>  
 
 
@@ -38,46 +38,10 @@
 <pre>
    DELETE selectCidList FROM tablename ( wherec ) ? rowkeyrange ( TS IS tsexp ) ?
 
-   delete * from MyRecordV05 startkey is intkey ("0")  
+   #foreach( $hql in $!deleteHqls )
+   $hql
+   
+   #end
 </pre> 
 
 
-<h1>EBILL</h1>
-<h2>insert data to billCategory</h2>
-<pre>
-insert into billCategory
-( 
-userId,
-billCycle,
-fundpayIncomeFather,
-fundpayIncomeSub,
-fundpayIncomeTop,
-fundpayIncomeAmount,
-fundpayIncomeCount,
-fundpayTurnInFather,
-fundpayTurnInSub,
-fundpayTurnInTop,
-fundpayTurnInAmount,
-fundpayTurnInCount,
-fundpayTurnOutFather,
-fundpayTurnOutSub,
-fundpayTurnOutTop,
-fundpayTurnOutAmount,
-fundpayTurnOutCount,
-fundpayConsumeFather,
-fundpayConsumeSub,
-fundpayConsumeTop,
-fundpayConsumeAmount,
-fundpayConsumeCount 
-) 
-values ( 
-"2088123456781234",
-"20140401",
-"FUND_PAY","FUND_PAY_INCOME",null,"10000","1",
-"FUND_PAY","FUND_PAY_IN",null,"20000","1",
-"FUND_PAY","FUND_PAY_OUT",null,"30000","1",
-"FUND_PAY","FUND_PAY_CONSUME",null,"40000","1" ) 
-
-rowkey is billCategoryRowKey ( "2088123456781234_20140401" ) 
-
-</pre>
