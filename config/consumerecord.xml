@@ -1,6 +1,6 @@
 <SimpleHbase>
 
-	<HBaseTableSchema tableName="T_CONSUME_RECORD" defaultFamily="CONSUME" rowKeyHandlerName="com.alipay.hbaseviewer.ext.ConsumeRecordRowKeyHandler" >	
+	<HBaseTableSchema tableName="T_CONSUME_RECORD" defaultFamily="CONSUME" rowKeyHandlerName="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordRowKeyHandler" >	
 	
 		<HBaseColumnSchema qualifier="OWNER_CARD_NO" typeName="string" />
 		<HBaseColumnSchema qualifier="OWNER_CUSTOMER_ID" typeName="string" />

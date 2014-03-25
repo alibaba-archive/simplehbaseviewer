@@ -1,10 +1,12 @@
-package com.alipay.hbaseviewer.ext;
+package com.alipay.hbaseviewer.ext.consumerecord;
 
 import java.util.Date;
 import java.util.List;
 
 import org.apache.hadoop.hbase.util.Bytes;
 
+import com.alipay.hbaseviewer.ext.DisplayOnlyStringRowKey;
+import com.alipay.simplehbase.client.RowKey;
 import com.alipay.simplehbase.client.rowkey.handler.RowKeyHandler;
 import com.alipay.simplehbase.util.BytesUtil;
 import com.alipay.simplehbase.util.DateUtil;
@@ -14,7 +16,7 @@ import com.alipay.simplehbase.util.Util;
 public class ConsumeRecordRowKeyHandler implements RowKeyHandler {
 
     @Override
-    public Object convert(byte[] row) {
+    public RowKey convert(byte[] row) {
         StringBuilder sb = new StringBuilder();
         List<byte[]> list = BytesUtil.split(row, BytesUtil.ZERO);
         Util.check(list.size() == 4);
@@ -30,7 +32,8 @@ public class ConsumeRecordRowKeyHandler implements RowKeyHandler {
         sb.append(" ");
 
         sb.append(Bytes.toString(list.get(3)));
-        return sb;
+
+        return new DisplayOnlyStringRowKey(sb.toString());
 
     }
 }

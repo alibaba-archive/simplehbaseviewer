@@ -10,6 +10,7 @@ import java.util.TreeSet;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import com.alipay.simplehbase.client.RowKey;
 import com.alipay.simplehbase.client.SimpleHbaseCellResult;
 import com.alipay.simplehbase.config.SimpleHbaseConstants;
 import com.alipay.simplehbase.util.DateUtil;
@@ -51,7 +52,7 @@ public class CellListWrapper {
             for (SimpleHbaseCellResult cell : cellList) {
                 if (cell.getTsDate().equals(ts)) {
                     cellListWrapper.addCell(cell);
-                    cellListWrapper.setRowkey(cell.getRowObject());
+                    cellListWrapper.setRowkey(cell.getRowKey());
                 }
             }
         }
@@ -60,7 +61,7 @@ public class CellListWrapper {
 
     private List<SimpleHbaseCellResult> cellList = new ArrayList<SimpleHbaseCellResult>();
     private Date                        ts;
-    private Object                      rowkey;
+    private RowKey                      rowkey;
 
     public CellListWrapper() {
     }
@@ -98,11 +99,11 @@ public class CellListWrapper {
         this.ts = ts;
     }
 
-    public Object getRowkey() {
+    public RowKey getRowkey() {
         return rowkey;
     }
 
-    public void setRowkey(Object rowkey) {
+    public void setRowkey(RowKey rowkey) {
         this.rowkey = rowkey;
     }
 }
