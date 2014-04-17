@@ -2,6 +2,8 @@ package com.alipay.hbaseviewer.helper;
 
 /**
  * ViewHelper.
+ * 
+ * @author xinzhi.zhang
  * */
 public class ViewHelper {
     /**

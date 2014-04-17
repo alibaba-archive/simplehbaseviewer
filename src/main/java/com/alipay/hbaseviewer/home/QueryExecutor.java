@@ -12,8 +12,16 @@ import com.alipay.simplehbase.client.SimpleHbaseClient;
 import com.alipay.simplehbase.core.RawHQLType;
 import com.alipay.simplehbase.util.ExceptionUtil;
 
+/**
+ * QueryExecutor
+ * 
+ * @author xinzhi.zhang
+ * */
 public class QueryExecutor {
 
+    /**
+     * execute hql.
+     * */
     public static void execute(HbaseClientManager hbaseClientManager,
             String hql, ModelMap model) {
         try {

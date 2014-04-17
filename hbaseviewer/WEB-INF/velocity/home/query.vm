@@ -1,26 +1,36 @@
 <h1>command</h1>
+
+select statement to execute it or submit it directly.
+
 <form action="query.htm" method="post">
+
+	<input id="commandInput" type="hidden" name="command" value=""/>	
 	
 	<br/>	
-	<textarea name="command" rows="5" cols="100">$!commandForm.command</textarea>		
+	<textarea id="fullCommandTextarea" name="fullCommand" rows="10" cols="200">$!commandForm.fullCommand</textarea>		
 	<br/>	
 	columnMode <input type="checkbox" name="columnMode" #if($!commandForm.columnMode=='true')checked #end value="true" />
 	<br/>
 	<input type="submit" value="Submit" />	
 </form>
-<h1>log</h1>
-<pre>
-last query at $!nowTime : result is
-</pre>
-#if($!status=="ok")
-    ok!
-#else
-<pre>
-	$!exception
-</pre>	
-#end
-<br/>	
-<br/>	
+
+#if($!commandForm.command)
+    <h1>log</h1>
+    last statement at $!nowTime : 
+	<br/>	
+	<b>$!commandForm.command</b>
+	<br/>	
+	result is
+	<br/>	
+    #if($!status=="ok")
+        ok!
+    #else
+    <pre>
+    	$!exception
+    </pre>	
+    #end
+    <br/>		
+#end	
 
 <h1>info</h1>
 #if($!allFamilyAndQualifierName && $!allFamilyAndQualifierName.size()>0)
@@ -80,7 +90,17 @@ last query at $!nowTime : result is
 
 
 
+<script type="text/javascript">
 
+window.onselect = selectText;
+function selectText(e)
+{    
+    start = e.target.selectionStart;
+    end = e.target.selectionEnd;    
+	var commandInput=document.getElementById("commandInput");
+	commandInput.value=e.target.value.substring(start, end);
+}
+</script>
 
 
 

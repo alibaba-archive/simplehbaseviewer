@@ -44,4 +44,21 @@
    #end
 </pre> 
 
+<h1>ConsumeRecord</h1>
+<pre>
+   #foreach( $hql in $!consumeRecordHqls )
+   $hql
+   
+   #end
+</pre>
+
+<h1>BillCategory</h1>
+<pre>
+   #foreach( $hql in $!billCategoryHqls )
+   $hql
+   
+   #end
+</pre>
+
+
 

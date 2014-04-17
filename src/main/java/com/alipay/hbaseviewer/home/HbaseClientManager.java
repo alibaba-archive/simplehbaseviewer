@@ -5,6 +5,11 @@ import java.util.List;
 
 import com.alipay.simplehbase.client.SimpleHbaseClient;
 
+/**
+ * HbaseClientManager
+ * 
+ * @author xinzhi.zhang
+ * */
 public class HbaseClientManager {
 
     private List<SimpleHbaseClient> list;

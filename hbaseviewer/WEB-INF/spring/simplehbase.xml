@@ -44,6 +44,7 @@
 	<bean id="consumerecord_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
 		<property name="hbaseTableConfig" ref="consumerecord_hbaseTableConfig" />
 		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+		<property name="simpleHbaseRuntimeSetting" ref="consumeRecordRuntimeSetting" />
 	</bean>
 
 
@@ -59,17 +60,29 @@
 	<bean id="billCategory_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
 		<property name="hbaseTableConfig" ref="billCategory_hbaseTableConfig" />
 		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
-		<property name="simpleHbaseRuntimeSetting" ref="runtimeSetting" />
+		<property name="simpleHbaseRuntimeSetting" ref="billCategoryRuntimeSetting" />
 		
 	</bean>
 
 	<bean id="billCategoryRowKeyFunc"
 		class="com.alipay.hbaseviewer.ext.billCategory.BillCategoryRowKeyFunc" />
+		
+   	<bean id="consumeRecordRowKeyFunc"
+		class="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordRowKeyFunc" />		
 
-	<bean id="runtimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
+	<bean id="billCategoryRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
 		<property name="rowKeyTextFuncList">
 			<list>
 				<ref bean="billCategoryRowKeyFunc" />
+			</list>
+		</property>
+	</bean>
+	
+	
+	<bean id="consumeRecordRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
+		<property name="rowKeyTextFuncList">
+			<list>
+				<ref bean="consumeRecordRowKeyFunc" />
 			</list>
 		</property>
 	</bean>

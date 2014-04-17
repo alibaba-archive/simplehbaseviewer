@@ -15,6 +15,11 @@ import com.alipay.simplehbase.client.SimpleHbaseCellResult;
 import com.alipay.simplehbase.config.SimpleHbaseConstants;
 import com.alipay.simplehbase.util.DateUtil;
 
+/**
+ * CellListWrapper
+ * 
+ * @author xinzhi.zhang
+ * */
 public class CellListWrapper {
 
     private static Log log = LogFactory.getLog(CellListWrapper.class);

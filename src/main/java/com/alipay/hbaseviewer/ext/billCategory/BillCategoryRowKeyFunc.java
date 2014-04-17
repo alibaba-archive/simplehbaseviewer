@@ -47,7 +47,7 @@ public class BillCategoryRowKeyFunc implements RowKeyTextFunc {
 
     @Override
     public String desc() {
-        return "billCategoryRowKey()";
+        return "billCategoryRowKey(\"userid_billCycle\")";
     }
 
 }

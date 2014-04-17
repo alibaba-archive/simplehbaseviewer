@@ -12,8 +12,14 @@ import com.alipay.hbaseviewer.helper.ViewHelper;
 import com.alipay.simplehbase.client.SimpleHbaseClient;
 import com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting;
 
+/**
+ * TableController
+ * 
+ * @author xinzhi.zhang
+ * */
 @Controller
 public class TableController {
+
     @Autowired
     private HbaseClientManager hbaseClientManager;
 

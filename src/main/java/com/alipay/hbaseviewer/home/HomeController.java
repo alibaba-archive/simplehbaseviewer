@@ -9,6 +9,8 @@ import com.alipay.hbaseviewer.helper.ViewHelper;
 
 /**
  * HomeController.
+ * 
+ * @author xinzhi.zhang
  * */
 @Controller
 public class HomeController {

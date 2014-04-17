@@ -2,6 +2,8 @@ package com.alipay.hbaseviewer.helper;
 
 /**
  * AppConstant.
+ * 
+ * @author xinzhi.zhang
  * */
 public class AppConstant {
     /**

@@ -11,6 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.alipay.hbaseviewer.helper.ViewHelper;
 
+/**
+ * ExceptionHandler
+ * 
+ * @author xinzhi.zhang
+ * */
 public class ExceptionHandler implements HandlerExceptionResolver {
 
     @Override
