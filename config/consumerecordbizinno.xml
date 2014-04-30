@@ -1,0 +1,8 @@
+<SimpleHbase>
+
+	<HBaseTableSchema tableName="IDX_BIZ_IN_NO_OF_CONSUME_RECORD" defaultFamily="GMT_BIZ_CREATE" rowKeyHandlerName="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordBizInNoRowKeyHandler">
+	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="date" />
+	</HBaseTableSchema>
+
+</SimpleHbase>
+
