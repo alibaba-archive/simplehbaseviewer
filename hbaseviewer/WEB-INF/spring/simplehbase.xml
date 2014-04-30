@@ -89,6 +89,37 @@
 		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
 		<property name="simpleHbaseRuntimeSetting" ref="consumeRecordRuntimeSetting" />
 	</bean>
+	
+	
+	
+	
+	
+	
+	
+	<bean id="consumeRecordReDoRowKeyFunc"
+		class="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordReDoRowKeyFunc" />		
+		
+	<bean id="consumeRecordReDoRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
+		<property name="rowKeyTextFuncList">
+			<list>
+				<ref bean="consumeRecordReDoRowKeyFunc" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="consumerecordReDo_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig"
+		init-method="init">
+		<property name="configResource" value="file:config\consumerecordredo.xml">
+		</property>
+	</bean>
+
+	<bean id="consumerecordReDo_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
+		<property name="hbaseTableConfig" ref="consumerecordReDo_hbaseTableConfig" />
+		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+		<property name="simpleHbaseRuntimeSetting" ref="consumeRecordReDoRuntimeSetting" />
+	</bean>
+	
+	
 
 
 
@@ -135,6 +166,7 @@
 				<ref bean="consumerecord_simpleHbaseClient" />
 				<ref bean="billCategory_simpleHbaseClient" />
 				<ref bean="consumerecordbizinno_simpleHbaseClient" />
+				<ref bean="consumerecordReDo_simpleHbaseClient" />				
 			</list>
 		</property>
 	</bean>

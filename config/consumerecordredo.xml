@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SimpleHbase>
+	<HBaseTableSchema tableName="T_CONSUME_RECORD_REDO" defaultFamily="f" rowKeyHandlerName="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordReDoRowKeyHandler">
+	    <HBaseColumnSchema qualifier="OWNER_CARD_NO" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_IN_NO" typeName="string" />
+	    <HBaseColumnSchema qualifier="BIZ_TYPE" typeName="string" />
+	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="date" />
+	    <HBaseColumnSchema qualifier="GMT_CREATE" typeName="date" />
+	    <HBaseColumnSchema qualifier="GMT_MODIFIED" typeName="date" />
+	    <HBaseColumnSchema qualifier="VERSION" typeName="int" />
+	</HBaseTableSchema>
+</SimpleHbase>
