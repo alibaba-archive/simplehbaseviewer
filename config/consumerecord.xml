@@ -28,12 +28,13 @@
 	    <HBaseColumnSchema qualifier="BIZ_PROPS" typeName="string" />
 	    <HBaseColumnSchema qualifier="BIZ_MEMO" typeName="string" />
 	    <HBaseColumnSchema qualifier="BIZ_ACTIONS" typeName="string" />
-	    <HBaseColumnSchema qualifier="MESSAGE_BORN" typeName="string" />
-	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="string" />
 	    
-	    <HBaseColumnSchema qualifier="GMT_BIZ_MODIFIED" typeName="string" />
-	    <HBaseColumnSchema qualifier="GMT_MODIFIED" typeName="string" />
-	    <HBaseColumnSchema qualifier="GMT_CREATE" typeName="string" />
+	    <HBaseColumnSchema qualifier="MESSAGE_BORN" typeName="date" />
+	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="date" />	    
+	    <HBaseColumnSchema qualifier="GMT_BIZ_MODIFIED" typeName="date" />
+	    <HBaseColumnSchema qualifier="GMT_MODIFIED" typeName="date" />
+	    <HBaseColumnSchema qualifier="GMT_CREATE" typeName="date" />
+	    
 	    <HBaseColumnSchema qualifier="OWNER_LOGIN_ID" typeName="string" />
 	    <HBaseColumnSchema qualifier="OPPOSITE_LOGIN_ID" typeName="string" />
 	    <HBaseColumnSchema qualifier="PARTNER_ID" typeName="string" />
@@ -45,7 +46,7 @@
 	    <HBaseColumnSchema qualifier="FLAG_REFUND" typeName="string" />
 	    <HBaseColumnSchema qualifier="ADDITIONAL_STATUS" typeName="string" />
 	    
-	    <HBaseColumnSchema qualifier="GMT_RECEIVE_PAY" typeName="string" />
+	    <HBaseColumnSchema qualifier="GMT_RECEIVE_PAY" typeName="date" />
 	    
 	    <HBaseColumnSchema qualifier="TRADE_FROM" typeName="string" />
 	    <HBaseColumnSchema qualifier="OWNER_NAME" typeName="string" />
@@ -57,7 +58,7 @@
 	    <HBaseColumnSchema qualifier="VAR5" typeName="string" />
 	    <HBaseColumnSchema qualifier="BIG1" typeName="string" />
 	    <HBaseColumnSchema qualifier="DATE1" typeName="string" />
-	    <HBaseColumnSchema qualifier="VERSION" typeName="string" />
+	    <HBaseColumnSchema qualifier="VERSION" typeName="int" />
 		
 		
 	
