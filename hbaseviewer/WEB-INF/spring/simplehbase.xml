@@ -17,6 +17,16 @@
 			</list>
 		</property>
 	</bean>
+	
+	<bean id="consume_hbaseDataSource" class="com.alipay.simplehbase.config.HBaseDataSource"
+		init-method="init">
+		<property name="hbaseConfigResources">
+			<list>
+				<value>file:config\consume\hbase_site</value>
+				<value>file:config\consume\zk_conf</value>
+			</list>
+		</property>
+	</bean>
 
 
 
@@ -57,7 +67,7 @@
 
 	<bean id="consumerecordbizinno_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
 		<property name="hbaseTableConfig" ref="consumerecordbizinno_hbaseTableConfig" />
-		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+		<property name="hbaseDataSource" ref="consume_hbaseDataSource" />
 		<property name="simpleHbaseRuntimeSetting" ref="consumeRecordBizInNoRuntimeSetting" />
 	</bean>
 	
@@ -69,6 +79,11 @@
 
    	<bean id="consumeRecordRowKeyFunc"
 		class="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordRowKeyFunc" />		
+	
+	<bean id="consumeDateLiteralInterpreter"
+		class="com.alipay.hbaseviewer.ext.consumerecord.DateLiteralInterpreter" />
+			
+		
 		
 	<bean id="consumeRecordRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
 		<property name="rowKeyTextFuncList">
@@ -76,6 +91,12 @@
 				<ref bean="consumeRecordRowKeyFunc" />
 			</list>
 		</property>
+		
+		<property name="literalInterpreterList">
+			<list>
+				<ref bean="consumeDateLiteralInterpreter" />
+			</list>
+		</property>				
 	</bean>
 	
 	<bean id="consumerecord_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig"
@@ -86,7 +107,7 @@
 
 	<bean id="consumerecord_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
 		<property name="hbaseTableConfig" ref="consumerecord_hbaseTableConfig" />
-		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+		<property name="hbaseDataSource" ref="consume_hbaseDataSource" />
 		<property name="simpleHbaseRuntimeSetting" ref="consumeRecordRuntimeSetting" />
 	</bean>
 	
@@ -115,7 +136,7 @@
 
 	<bean id="consumerecordReDo_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
 		<property name="hbaseTableConfig" ref="consumerecordReDo_hbaseTableConfig" />
-		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+		<property name="hbaseDataSource" ref="consume_hbaseDataSource" />
 		<property name="simpleHbaseRuntimeSetting" ref="consumeRecordReDoRuntimeSetting" />
 	</bean>
 	

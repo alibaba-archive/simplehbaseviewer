@@ -1,0 +1,7 @@
+hbase.client.pause=20
+hbase.client.retries.number=3
+hbase.ipc.client.tcpnodelay=true
+hbase.cluster.switch.support=true
+ipc.ping.interval=3000
+hbase.rpc.timeout=60000
+hbase.ipc.client.connection.maxidletime=1440000

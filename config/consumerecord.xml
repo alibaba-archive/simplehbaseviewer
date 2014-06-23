@@ -13,7 +13,7 @@
 		<HBaseColumnSchema qualifier="CONSUME_FEE" typeName="string" />
 		<HBaseColumnSchema qualifier="CONSUME_REFUND_FEE" typeName="string" />		
 		<HBaseColumnSchema qualifier="CONSUME_SITE" typeName="string" />		
-		<HBaseColumnSchema qualifier="CONSUME_STATUS" typeName="int" />	
+		<HBaseColumnSchema qualifier="CONSUME_STATUS" typeName="string" />	
 		
 	    <HBaseColumnSchema qualifier="CONSUME_REFUND_STATUS" typeName="string" />
 	    <HBaseColumnSchema qualifier="IN_OUT" typeName="string" />
@@ -29,12 +29,13 @@
 	    <HBaseColumnSchema qualifier="BIZ_PROPS" typeName="string" />
 	    <HBaseColumnSchema qualifier="BIZ_MEMO" typeName="string" />
 	    <HBaseColumnSchema qualifier="BIZ_ACTIONS" typeName="string" />
-	    <HBaseColumnSchema qualifier="MESSAGE_BORN" typeName="long" />
-	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="date" />
+	    <HBaseColumnSchema qualifier="MESSAGE_BORN" typeName="string" />
 	    
+	    <HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="date" />	    
 	    <HBaseColumnSchema qualifier="GMT_BIZ_MODIFIED" typeName="date" />
 	    <HBaseColumnSchema qualifier="GMT_MODIFIED" typeName="date" />
 	    <HBaseColumnSchema qualifier="GMT_CREATE" typeName="date" />
+	    
 	    <HBaseColumnSchema qualifier="OWNER_LOGIN_ID" typeName="string" />
 	    <HBaseColumnSchema qualifier="OPPOSITE_LOGIN_ID" typeName="string" />
 	    <HBaseColumnSchema qualifier="PARTNER_ID" typeName="string" />
