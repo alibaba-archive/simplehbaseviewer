@@ -157,7 +157,7 @@
 
 	<bean id="billCategory_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
 		<property name="hbaseTableConfig" ref="billCategory_hbaseTableConfig" />
-		<property name="hbaseDataSource" ref="test_hbaseDataSource" />
+		<property name="hbaseDataSource" ref="consume_hbaseDataSource" />
 		<property name="simpleHbaseRuntimeSetting" ref="billCategoryRuntimeSetting" />
 		
 	</bean>
