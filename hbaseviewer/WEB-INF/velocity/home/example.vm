@@ -52,6 +52,14 @@
    #end
 </pre>
 
+<h1>FundItem</h1>
+<pre>
+   #foreach( $hql in $!fundItemHqls )
+   $hql
+   
+   #end
+</pre>
+
 <h1>BillCategory</h1>
 <pre>
    #foreach( $hql in $!billCategoryHqls )

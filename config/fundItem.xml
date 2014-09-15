@@ -1,0 +1,46 @@
+<SimpleHbase>
+
+	<HBaseTableSchema tableName="T_FUND_ITEM" defaultFamily="f"  >	
+	
+		<HBaseColumnSchema qualifier="OWNER_CARD_NO" typeName="string" />
+		<HBaseColumnSchema qualifier="BIZ_IN_NO" typeName="string" />
+		<HBaseColumnSchema qualifier="BIZ_OUT_NO" typeName="string" />
+		<HBaseColumnSchema qualifier="BIZ_TYPE" typeName="int" />
+		<HBaseColumnSchema qualifier="GMT_BIZ_CREATE" typeName="date" />
+		<HBaseColumnSchema qualifier="BIZ_ID" typeName="int" />
+		
+		<HBaseColumnSchema qualifier="BELONG_TO_CROWNER" typeName="int" />		
+		<HBaseColumnSchema qualifier="TOOL_OWNER_CARDNO" typeName="string"/>
+		<HBaseColumnSchema qualifier="OPPOSITE_BIZ_CARD_NO" typeName="string"/>		
+		<HBaseColumnSchema qualifier="OPPOSITE_BIZ_CARD_ALIAS" typeName="string" />		
+		<HBaseColumnSchema qualifier="OPPOSITE_FUND_CARD_NO" typeName="string"/>	
+		
+	    <HBaseColumnSchema qualifier="TOOLTYPE_FOR_CROWNER" typeName="int" />
+	    <HBaseColumnSchema qualifier="TOOLTYPE_FOR_SYSTEM" typeName="int" />
+	    <HBaseColumnSchema qualifier="ACCESS_TYPE" typeName="int"/>
+	    <HBaseColumnSchema qualifier="INST_ID" typeName="string" />
+	    <HBaseColumnSchema qualifier="ACCOUNT_NO" typeName="string" />
+	    <HBaseColumnSchema qualifier="FUND_BIZ_TYPE" typeName="int" />
+	    <HBaseColumnSchema qualifier="BATCH_NO" typeName="int" />
+	    <HBaseColumnSchema qualifier="IN_OUT" typeName="int" />
+	    <HBaseColumnSchema qualifier="AMOUNT" typeName="long" />
+	    <HBaseColumnSchema qualifier="STATUS" typeName="int" />
+	    <HBaseColumnSchema qualifier="FUND_CREATE_TIME" typeName="long"/>
+	    <HBaseColumnSchema qualifier="FUND_LASTMODIFY_TIME" typeName="long"/>
+	    <HBaseColumnSchema qualifier="FUND_FINISH_TIME" typeName="long"/>
+	    <HBaseColumnSchema qualifier="EXTINFO" typeName="string" />
+	    <HBaseColumnSchema qualifier="GMT_MODIFIED" typeName="date"  />
+	    <HBaseColumnSchema qualifier="GMT_CREATE" typeName="date"  />
+	    
+	    <HBaseColumnSchema qualifier="VAR1" typeName="string" />
+	    <HBaseColumnSchema qualifier="VAR2" typeName="string" />
+	    <HBaseColumnSchema qualifier="VAR3" typeName="string" />
+	    <HBaseColumnSchema qualifier="VAR4" typeName="int" />
+	    <HBaseColumnSchema qualifier="VAR5" typeName="int" />
+	    <HBaseColumnSchema qualifier="VAR6" typeName="long" />
+	    <HBaseColumnSchema qualifier="VAR7" typeName="date"  />
+	    <HBaseColumnSchema qualifier="VAR8" typeName="date"  />
+	    <HBaseColumnSchema qualifier="VERSION" typeName="int" />
+	</HBaseTableSchema>
+
+</SimpleHbase>

@@ -26,6 +26,7 @@ public class ExampleController {
     private static List<String> deleteHqls        = new ArrayList<String>();
 
     private static List<String> consumeRecordHqls = new ArrayList<String>();
+    private static List<String> fundItemHqls      = new ArrayList<String>();
     private static List<String> billCategoryHqls  = new ArrayList<String>();
 
     static {
@@ -58,6 +59,9 @@ public class ExampleController {
         consumeRecordHqls
                 .add("delete * from  T_CONSUME_RECORD  rowkey is consumerecordkey ( \"111$2000-01-01_01:01:01$TRADE$222\" )");
 
+        fundItemHqls
+                .add(" select * from T_FUND_ITEM where BIZ_IN_NO equal \"20140915000040011100320090829015\" startkey is uidrowkey (\"2088102001267322\")  endkey is uidrowkeyend (\"2088102001267322\") limit 10");
+
         billCategoryHqls
                 .add("insert into billCategory  ( userId ) values ( \"2088123456781234\" ) rowkey is billCategoryRowKey (\"2088123456781234_20140401\")");
         billCategoryHqls
@@ -75,6 +79,7 @@ public class ExampleController {
         model.addAttribute("selectHqls", selectHqls);
         model.addAttribute("deleteHqls", deleteHqls);
         model.addAttribute("consumeRecordHqls", consumeRecordHqls);
+        model.addAttribute("fundItemHqls", fundItemHqls);
         model.addAttribute("billCategoryHqls", billCategoryHqls);
         return ViewHelper.getHomeView("example");
     }
@@ -113,6 +118,16 @@ public class ExampleController {
         }
 
         for (String hql : consumeRecordHqls) {
+            ModelMap tmodel = new ModelMap();
+            QueryExecutor.execute(hbaseClientManager, hql, tmodel);
+            if (!tmodel.get("status").equals("ok")) {
+                model.addAttribute("status", tmodel.get("status"));
+                model.addAttribute("exception", tmodel.get("exception"));
+                return getHandle(tmodel);
+            }
+        }
+
+        for (String hql : fundItemHqls) {
             ModelMap tmodel = new ModelMap();
             QueryExecutor.execute(hbaseClientManager, hql, tmodel);
             if (!tmodel.get("status").equals("ok")) {

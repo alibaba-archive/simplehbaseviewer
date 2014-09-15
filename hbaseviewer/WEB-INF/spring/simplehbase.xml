@@ -46,15 +46,27 @@
 
 
 
+   	<bean id="userIdRowKeyFunc"
+		class="com.alipay.hbaseviewer.ext.consumerecord.UserIdRowKeyFunc" />
 
+   	<bean id="userIdEndRowKeyFunc"
+		class="com.alipay.hbaseviewer.ext.consumerecord.UserIdEndRowKeyFunc" />		
+		
+		
+		
+		
 
    	<bean id="consumeRecordBizInNoRowKeyFunc"
 		class="com.alipay.hbaseviewer.ext.consumerecord.ConsumeRecordBizInNoRowKeyFunc" />		
+   	
+			
 		
 	<bean id="consumeRecordBizInNoRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
 		<property name="rowKeyTextFuncList">
 			<list>
 				<ref bean="consumeRecordBizInNoRowKeyFunc" />
+				<ref bean="userIdRowKeyFunc" />
+				<ref bean="userIdEndRowKeyFunc" />
 			</list>
 		</property>
 	</bean>
@@ -89,6 +101,8 @@
 		<property name="rowKeyTextFuncList">
 			<list>
 				<ref bean="consumeRecordRowKeyFunc" />
+				<ref bean="userIdRowKeyFunc" />
+				<ref bean="userIdEndRowKeyFunc" />
 			</list>
 		</property>
 		
@@ -114,6 +128,30 @@
 	
 	
 	
+
+	<bean id="funditemRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
+		<property name="rowKeyTextFuncList">
+			<list>				
+				<ref bean="userIdRowKeyFunc" />
+				<ref bean="userIdEndRowKeyFunc" />
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="funditem_hbaseTableConfig" class="com.alipay.simplehbase.config.HBaseTableConfig"
+		init-method="init">
+		<property name="configResource" value="file:config\fundItem.xml">
+		</property>
+	</bean>
+
+	<bean id="funditem_simpleHbaseClient" class="com.alipay.simplehbase.client.SimpleHbaseClientImpl">
+		<property name="hbaseTableConfig" ref="funditem_hbaseTableConfig" />
+		<property name="hbaseDataSource" ref="consume_hbaseDataSource" />
+		<property name="simpleHbaseRuntimeSetting" ref="funditemRuntimeSetting" />
+	</bean>
+	
+	
+	
 	
 	
 	
@@ -124,6 +162,8 @@
 		<property name="rowKeyTextFuncList">
 			<list>
 				<ref bean="consumeRecordReDoRowKeyFunc" />
+				<ref bean="userIdRowKeyFunc" />
+				<ref bean="userIdEndRowKeyFunc" />
 			</list>
 		</property>
 	</bean>
@@ -168,13 +208,15 @@
 	<bean id="billCategoryRuntimeSetting" class="com.alipay.simplehbase.config.SimpleHbaseRuntimeSetting">
 		<property name="rowKeyTextFuncList">
 			<list>
-				<ref bean="billCategoryRowKeyFunc" />
+				<ref bean="billCategoryRowKeyFunc" />				
 			</list>
 		</property>
 	</bean>
 	
 	
 
+
+	
 	
 	
 	
@@ -185,6 +227,7 @@
 			<list>
 				<ref bean="myRecord_simpleHbaseClient" />
 				<ref bean="consumerecord_simpleHbaseClient" />
+				<ref bean="funditem_simpleHbaseClient" />
 				<ref bean="billCategory_simpleHbaseClient" />
 				<ref bean="consumerecordbizinno_simpleHbaseClient" />
 				<ref bean="consumerecordReDo_simpleHbaseClient" />				
