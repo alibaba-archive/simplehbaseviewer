@@ -59,7 +59,7 @@
 	    <HBaseColumnSchema qualifier="FLAG_REFUND" typeName="string" />
 	    <HBaseColumnSchema qualifier="ADDITIONAL_STATUS" typeName="string" />
 	    
-	    <HBaseColumnSchema qualifier="GMT_RECEIVE_PAY" typeName="date" />
+	    <HBaseColumnSchema qualifier="GMT_RECEIVE_PAY" typeName="date" handler="com.alipay.hbaseviewer.ext.consumerecord.StringDateHandler" />
 	    <HBaseColumnSchema qualifier="N_GMT_RECEIVE_PAY" typeName="date" />
 	    
 	    <HBaseColumnSchema qualifier="TRADE_FROM" typeName="string" />
