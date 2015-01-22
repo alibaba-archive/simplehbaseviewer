@@ -47,6 +47,14 @@ public class QueryExecutor {
                 case DELETE:
                     simpleHbaseClient.delete(hql);
                     break;
+                case COUNT:
+                    long countResult = simpleHbaseClient.count(hql);
+                    model.addAttribute("countResult", countResult);
+                    break;
+                case COUNTSUM:
+                    long[] countSumResult = simpleHbaseClient.countAndSum(hql);
+                    model.addAttribute("countSumResult", countSumResult);
+                    break;
                 default:
                     break;
             }

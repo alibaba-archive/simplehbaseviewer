@@ -12,8 +12,8 @@
 		init-method="init">
 		<property name="hbaseConfigResources">
 			<list>
-				<value>file:config\hbase_site</value>
-				<value>file:config\zk_conf</value>
+				<value>file:config\test\hbase_site</value>
+				<value>file:config\test\zk_conf</value>
 			</list>
 		</property>
 	</bean>

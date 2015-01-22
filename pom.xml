@@ -98,7 +98,7 @@
 		<dependency>
 			<groupId>allen</groupId>
 			<artifactId>simplehbase</artifactId>	
-			<version>0.9</version>
+			<version>0.94.2</version>
 		 </dependency>
 		 
 		 <dependency>
@@ -106,6 +106,13 @@
 	       <artifactId>commons-codec</artifactId>
 	       <version>1.3</version>
         </dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.1</version>
+			<scope>test</scope>
+		</dependency>	        
 	
 	</dependencies>
 

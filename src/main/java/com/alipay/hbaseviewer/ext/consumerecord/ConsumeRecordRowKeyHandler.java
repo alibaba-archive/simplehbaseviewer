@@ -8,6 +8,7 @@ import org.apache.hadoop.hbase.util.Bytes;
 import com.alipay.hbaseviewer.ext.DisplayOnlyStringRowKey;
 import com.alipay.simplehbase.client.RowKey;
 import com.alipay.simplehbase.client.rowkey.handler.RowKeyHandler;
+import com.alipay.simplehbase.type.ext.HexBytes;
 import com.alipay.simplehbase.util.BytesUtil;
 import com.alipay.simplehbase.util.DateUtil;
 import com.alipay.simplehbase.util.StringUtil;
@@ -34,6 +35,14 @@ public class ConsumeRecordRowKeyHandler implements RowKeyHandler {
         sb.append(Bytes.toString(list.get(3)));
 
         return new DisplayOnlyStringRowKey(sb.toString());
+
+    }
+
+    public static void main(String[] args) {
+        HexBytes hb = new HexBytes(
+                "39 38 32 36 34 33 34 31 31 32 30 31 38 38 30 32 00 7F FF FE B7 74 2E D4 53 00 54 52 41 44 45 00 32 30 31 34 30 39 31 39 31 31 30 30 31 30 30 30 33 31 33 32 30 30 30 30 30 30 30 31");
+        System.out.println(new ConsumeRecordRowKeyHandler().convert(hb
+                .getData()));
 
     }
 }

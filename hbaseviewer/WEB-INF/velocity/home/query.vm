@@ -88,6 +88,15 @@ select statement to execute it or submit it directly.
     #end
 #end
 
+#if($!countResult)
+	$!countResult
+#end
+
+#if($!countSumResult)
+	#foreach($value in $!countSumResult)
+		$value   
+	#end	
+#end
 
 
 <script type="text/javascript">

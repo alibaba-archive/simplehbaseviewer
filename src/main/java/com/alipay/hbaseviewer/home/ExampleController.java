@@ -24,6 +24,8 @@ public class ExampleController {
     private static List<String> insertHqls        = new ArrayList<String>();
     private static List<String> selectHqls        = new ArrayList<String>();
     private static List<String> deleteHqls        = new ArrayList<String>();
+    private static List<String> countHqls         = new ArrayList<String>();
+    private static List<String> countSumHqls      = new ArrayList<String>();
 
     private static List<String> consumeRecordHqls = new ArrayList<String>();
     private static List<String> fundItemHqls      = new ArrayList<String>();
@@ -31,26 +33,34 @@ public class ExampleController {
 
     static {
         insertHqls
-                .add("insert into MyRecordV05 ( name,age ) values ( \"allen\", \"30\" ) rowkey is intkey (\"0\")   ");
+                .add("insert into MyRecordV_Allen3 ( name,age ) values ( \"allen\", \"30\" ) rowkey is intkey (\"0\")   ");
         insertHqls
-                .add("insert into MyRecordV05 ( fatname,age ) values ( \"allenfat\", \"30\" ) rowkey is intkey (\"0\") ");
+                .add("insert into MyRecordV_Allen3 ( fatname,age ) values ( \"allenfat\", \"30\" ) rowkey is intkey (\"0\") ");
         insertHqls
-                .add("insert into MyRecordV05 ( name ) values ( null ) rowkey is intkey (\"0\")");
+                .add("insert into MyRecordV_Allen3 ( name ) values ( null ) rowkey is intkey (\"0\")");
         insertHqls
-                .add("insert into MyRecordV05 ( name,age ) values ( \"allen\", \"30\" ) rowkey is intkey (\"0\") ts is \"2014-10-01_10:12:12:123\" ");
+                .add("insert into MyRecordV_Allen3 ( name,age ) values ( \"allen\", \"30\" ) rowkey is intkey (\"0\") ts is \"2014-10-01_10:12:12:123\" ");
 
         selectHqls
-                .add("select * from MyRecordV05 startkey is intkey (\"0\") , endkey is intkey (\"100\") maxversion 10 startTS is \"2014-01-01\" , endTS is \"2100-01-01\" limit 10 , 20");
+                .add("select * from MyRecordV_Allen3 startkey is intkey (\"0\") , endkey is intkey (\"100\") maxversion 10 startTS is \"2014-01-01\" , endTS is \"2100-01-01\" limit 10 , 20");
         selectHqls
-                .add("select * from MyRecordV05 startkey is intkey (\"0\")  startTS is \"2014-01-01\" limit 10 , 20");
-        selectHqls.add("select * from MyRecordV05 startkey is intkey (\"0\")");
-        selectHqls.add("select * from MyRecordV05 rowkey is intkey (\"0\")");
+                .add("select * from MyRecordV_Allen3 startkey is intkey (\"0\")  startTS is \"2014-01-01\" limit 10 , 20");
         selectHqls
-                .add("select ( name ) from MyRecordV05 rowkey is intkey (\"0\")");
+                .add("select * from MyRecordV_Allen3 startkey is intkey (\"0\")");
         selectHqls
-                .add("select ( name ) from MyRecordV05 where name equal \"allen\" rowkey is intkey (\"0\")");
+                .add("select * from MyRecordV_Allen3 rowkey is intkey (\"0\")");
+        selectHqls
+                .add("select ( name ) from MyRecordV_Allen3 rowkey is intkey (\"0\")");
+        selectHqls
+                .add("select ( name ) from MyRecordV_Allen3 where name equal \"allen\" rowkey is intkey (\"0\")");
 
-        deleteHqls.add("delete * from MyRecordV05 startkey is intkey (\"0\") ");
+        deleteHqls
+                .add("delete * from MyRecordV_Allen3 startkey is intkey (\"0\") ");
+
+        countHqls.add("count from MyRecordV_Allen3 startkey is intkey (\"0\")");
+
+        countSumHqls
+                .add("countsum ( age ) from MyRecordV_Allen3 startkey is intkey (\"0\")");
 
         consumeRecordHqls
                 .add("insert into T_CONSUME_RECORD ( OWNER_CARD_NO ) values ( \"2088123456781234\" ) rowkey is consumerecordkey ( \"111$2000-01-01_01:01:01$TRADE$222\" )");
@@ -78,6 +88,9 @@ public class ExampleController {
         model.addAttribute("insertHqls", insertHqls);
         model.addAttribute("selectHqls", selectHqls);
         model.addAttribute("deleteHqls", deleteHqls);
+        model.addAttribute("countHqls", countHqls);
+        model.addAttribute("countSumHqls", countSumHqls);
+        
         model.addAttribute("consumeRecordHqls", consumeRecordHqls);
         model.addAttribute("fundItemHqls", fundItemHqls);
         model.addAttribute("billCategoryHqls", billCategoryHqls);

@@ -44,6 +44,28 @@
    #end
 </pre> 
 
+<h1>COUNT</h1>
+<pre>
+   COUNT FROM tablename ( wherec ) ? rowkeyrange
+
+   #foreach( $hql in $!countHqls )
+   $hql
+   
+   #end
+</pre> 
+
+<h1>COUNTSUM</h1>
+<pre>
+   COUNTSUM selectCidList FROM tablename ( wherec ) ? rowkeyrange
+
+   #foreach( $hql in $!countSumHqls )
+   $hql
+   
+   #end
+</pre> 
+
+
+
 <h1>ConsumeRecord</h1>
 <pre>
    #foreach( $hql in $!consumeRecordHqls )
